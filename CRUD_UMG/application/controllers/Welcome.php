@@ -22,12 +22,14 @@ class Welcome extends CI_Controller {
 		$persona['direccion'] = $this->input-> post('direccion');
 		$persona['movil'] = $this->input-> post('movil');
 		$persona['email'] = $this->input-> post('email');
+		$persona['dpi'] = $this->input-> post('dpi');
 		$this->persona->agregar($persona);
 		redirect('welcome');
 	}
 
 	public function eliminar($id_persona) {
 		$this->persona->eliminar($id_persona);
+		echo 'Deleted successfully';
 		redirect('welcome');
 	}//end eliminar
 
@@ -38,7 +40,7 @@ class Welcome extends CI_Controller {
 		$persona['direccion'] = $this->input->post('direccion');
 		$persona['movil'] = $this->input->post('movil');
 		$persona['email'] = $this->input->post('email');
-
+		$persona['dpi'] = $this->input->post('dpi');
 		$this->persona->actualizar($persona, $id_persona);
 		redirect('welcome');
 	}//end editar

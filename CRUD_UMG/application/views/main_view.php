@@ -37,11 +37,19 @@
 				<div class="row">
 					<div class="form-group col-sm-4">
 							<label for="">Movil</label>
-							<input type="text" name="movil" class="form-control" required placeholder="+502 1111-1111" id="movil">
+							<input type="text" name="movil" class="form-control" required placeholder="1111-1111" id="movil"
+							pattern="[0-9]{8}">
 						</div>
 						<div class="form-group col-sm-4">
 							<label for="">Email</label>
-							<input type="text" name="email" class="form-control" required placeholder="ejemplo@gmail.com" id="email">
+							
+							<input type="text" name="email" class="form-control" required placeholder="ejemplo@gmail.com" id="email" 
+							pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$">
+						</div>
+						<div class="form-group col-sm-4">
+							<label for="">DPI</label>
+							<input type="text" name="dpi" class="form-control" required placeholder="xxxx-xxxxx-xxxx" id="dpi"
+							pattern ="[0-9]{13}">
 						</div>
 					</div>
 					<button type="submit" class="btn btn-primary btn-block">Guardar</button>
@@ -66,6 +74,7 @@
 									<th scope="col">Nombre</th>
 									<th scope="col">Dirección</th>
 									<th scope="col">Movil</th>
+									<th scope="col">DPI</th>
 									<th scope="col">Editar</th>
 									<th scope="col">Eliminar</th>
 									
@@ -81,8 +90,9 @@
 												<td>'.$persona->nombre.' '.$persona->apellido.' </td>
 												<td>'.$persona->direccion.' </td>
 												<td>'.$persona->movil.' </td>
+												<td>'.$persona->dpi.' </td>
 												<td><button type="button" class="btn btn-warning text-white" onclick="llenar_datos
-												('.$persona->alumno.', `'.$persona->nombre.'`, `'.$persona->apellido.'`, `'.$persona->direccion.'`, `'.$persona->movil.'`, `'.$persona->email.'`)">Editar</button></td>		
+												('.$persona->alumno.', `'.$persona->nombre.'`, `'.$persona->apellido.'`, `'.$persona->direccion.'`, `'.$persona->movil.'`, `'.$persona->email.'`, `'.$persona->dpi.'`)">Editar</button></td>		
 												<td><a href="'.base_url('welcome/eliminar/'.$persona->alumno).'" type="button" class="btn btn-danger">Eliminar</a></td>		
 											</tr>
 											';	
@@ -111,8 +121,11 @@
 				document.getElementById('direccion').value = direccion;
 				document.getElementById('movil').value = movil;
 				document.getElementById('email').value = email;
+				document.getElementById('dpi').value = email;
 			};
 		
 		</script>
+
+		
 </body>
 </html>
